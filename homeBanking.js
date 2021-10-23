@@ -40,7 +40,7 @@ const poderConsultarSaldo3 = (id) => {
     return existe.saldo;
   }
 };
-console.log(poderConsultarSaldo3(456))
+// console.log(poderConsultarSaldo3(456));
 
 /* //pedir saldo V.2
 //Toma como variable id del cliente y devuelve un string con el
@@ -76,7 +76,18 @@ listaDeID(123)
 function agregarSaldo(id, number) {
   let acumulador = 0;
   acumulador = poderConsultarSaldo3(id) + number;
-  return acumulador
+  return acumulador;
+}
+// console.log(agregarSaldo(456, 300));
+
+function transferenciaDeSaldo(id1, id2, number) {
+  let saldoOrigen = poderConsultarSaldo3(id1) - number;
+  let saldoTransferido = poderConsultarSaldo3(id2) + number;
+  listaUsuarios.find((x) => x.id === id1).saldo = saldoOrigen;
+  listaUsuarios.find((x) => x.id === id2).saldo = saldoTransferido;
 }
 
-console.log(agregarSaldo(456, 300));
+transferenciaDeSaldo(123, 456, 300);
+console.log(listaUsuarios)
+transferenciaDeSaldo(456,777,300)
+console.log(listaUsuarios);
