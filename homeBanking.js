@@ -37,12 +37,10 @@ poderConsultarSaldo(444);  */
 const poderConsultarSaldo3 = (id) => {
   let existe = listaUsuarios.find((x) => x.id === id);
   if (existe != undefined) {
-    console.log(`Su saldo es de $ ${existe.saldo.toFixed(2)}.`);
-  } else {
-    console.log("No existe");
+    return existe.saldo;
   }
 };
-poderConsultarSaldo3(456);
+console.log(poderConsultarSaldo3(456))
 
 /* //pedir saldo V.2
 //Toma como variable id del cliente y devuelve un string con el
@@ -74,3 +72,11 @@ poderConsultarSaldo2(777)
 
 listaDeID(123)
  */
+
+function agregarSaldo(id, number) {
+  let acumulador = 0;
+  acumulador = poderConsultarSaldo3(id) + number;
+  return acumulador
+}
+
+console.log(agregarSaldo(456, 300));
